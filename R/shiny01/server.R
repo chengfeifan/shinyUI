@@ -31,9 +31,14 @@ shinyServer(function(input,output){
     datafileInput()
   )
   
-  output$yPlotControl<-renderUI(
-    selectInput("variable","choose a variable",choices = colnames(datafileInput()))
-  )
+  # if(input$datafile=='y'){
+    output$yPlotControl<-renderUI(
+      if(input$datafile=='y'){
+        selectInput("variable","choose a variable",choices = colnames(datafileInput()))
+      }
+    )
+  # }
+
   
   output$Image<-renderImage(
     list(src="J:/myPackage/shinyUI/images/TEgraph.png",
