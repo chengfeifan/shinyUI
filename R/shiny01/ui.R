@@ -7,6 +7,10 @@ shinyUI(fluidPage(
     selectInput("dataset","choose a div",choices=names(dataDiv)),
     selectInput("datafile","choose a data file",choices=c("y","r","u","t")),
     br(),
+    conditionalPanel(
+      condition ="input.datafile == 'y'",
+      uiOutput("yPlotControl")
+    ),
     submitButton("Update View")
   ),
   
