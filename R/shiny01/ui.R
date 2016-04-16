@@ -1,5 +1,4 @@
 library(shiny)
-data(dataDiv-TE)
 shinyUI(fluidPage(
   titlePanel("Show the data of TE Model"),
   
@@ -19,7 +18,7 @@ shinyUI(fluidPage(
   mainPanel(
     tabsetPanel(
       tabPanel("Table",tableOutput("Table")),
-      tabPanel("Graph",imageOutput("Image"))
+      tabPanel("Graph",plotOutput("contents"),verbatimTextOutput("Text"))
     )
   )
   
