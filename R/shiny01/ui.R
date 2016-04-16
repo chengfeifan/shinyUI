@@ -18,7 +18,7 @@ shinyUI(fluidPage(
   mainPanel(
     tabsetPanel(
       tabPanel("Table",tableOutput("Table")),
-      tabPanel("Graph",plotOutput("contents"),verbatimTextOutput("Text"))
+      tabPanel("Graph",plotOutput("contents"),verbatimTextOutput("Text"),imageOutput("Image"))
     )
   )
   
