@@ -1,5 +1,5 @@
 library(shiny)
-
+library(plotly)
 shinyServer(function(input,output){
   #choose a dataset
   datasetInput<-reactive(
@@ -35,8 +35,11 @@ shinyServer(function(input,output){
     )
     
     # plot the column variable
-    output$contents<-renderPlot(
-      plot(datafileInput()[,i()],type='l',main=i(),ylab = "Value",xlab = "Time")
+    output$contents<-renderPlotly(
+      dataPlot<-data.frame(c(1:length(datafileInput()[,i()])),datafileInput()[,i()]),
+      names(dataPlot)<-c("Time","Value"),
+      p<-plot_ly(dataPlot,x=Time,y=Value,colors = "green"),
+      layout(p)
     )
     
     # output the local image

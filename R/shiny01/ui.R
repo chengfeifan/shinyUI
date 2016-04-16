@@ -1,4 +1,5 @@
 library(shiny)
+library(plotly)
 shinyUI(fluidPage(
   titlePanel("Show the data of TE Model"),
   
@@ -18,7 +19,7 @@ shinyUI(fluidPage(
   mainPanel(
     tabsetPanel(
       tabPanel("Table",tableOutput("Table")),
-      tabPanel("Graph",plotOutput("contents"),verbatimTextOutput("Text"),imageOutput("Image"))
+      tabPanel("Graph",plotlyOutput("contents"),verbatimTextOutput("Text"),imageOutput("Image"))
     )
   )
   
